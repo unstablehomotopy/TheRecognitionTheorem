@@ -1,0 +1,1410 @@
+\documentclass{book}
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+
+%PACKAGES
+\iffalse
+Here are the packages that I use
+\fi
+
+\usepackage{blindtext, hyperref, verbatim, minted, graphicx, amssymb, textcomp, enumerate, tcolorbox, newunicodechar, textgreek, wasysym, tipa, eso-pic, lipsum, bbold, dsfont}
+\usepackage[margin=1.3in]{geometry}
+\usepackage{longtable}
+\usepackage{newunicodechar}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+
+\usepackage{lipsum} % for generating dummy text
+\usepackage{draftwatermark} % for adding watermark
+\usepackage{xcolor} % for colors
+
+% Define the draft watermark
+\SetWatermarkText{\textcolor{red}{ND}}
+\SetWatermarkScale{2} % Adjust the size of the watermark
+
+
+
+
+
+%ENVIRONMENTS
+
+%Here I define some common environments. I use definitions, theorems, examples, and lemmas.
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+
+
+\newunicodechar{ₙ}{${}_{n}$}
+\newunicodechar{𝓓}{$\mathcal{D}$}
+\newunicodechar{∂}{\raisebox{-0.06cm}{$\partial$}}
+\newunicodechar{∇}{\raisebox{-0.05cm}{$\nabla$}}
+
+%\newunicodechar{π⃗}{$\stackrel{\arr}{\pi}$}
+
+\newunicodechar{×}{$\times$}
+\newunicodechar{→}{$\rightarrow$}
+\newunicodechar{⟨}{$\langle$}
+\newunicodechar{⟩}{$\rangle$}
+\newunicodechar{↦}{$\mapsto$}
+\newunicodechar{∧}{$\wedge$}
+\newunicodechar{∨}{$\vee$}
+\newunicodechar{∃}{$\exists$}
+\newunicodechar{∀}{$\forall$}
+\newunicodechar{¬}{$\neg$}
+\newunicodechar{ᵃ}{${}^{\texttt{a}}$}
+\newunicodechar{ᵇ}{${}^{\texttt{b}}$}
+\newunicodechar{ᶜ}{${}^{\texttt{c}}$}
+\newunicodechar{ᵈ}{${}^{\texttt{d}}$}
+\newunicodechar{ᵉ}{${}^{\texttt{e}}$}
+\newunicodechar{ᶠ}{${}^{\texttt{f}}$}
+\newunicodechar{ᵍ}{${}^{\texttt{g}}$}
+\newunicodechar{ʰ}{${}^{\texttt{h}}$}
+\newunicodechar{ⁱ}{${}^{\texttt{i}}$}
+\newunicodechar{ʲ}{${}^{\texttt{j}}$}
+\newunicodechar{ᵏ}{${}^{\texttt{k}}$}
+\newunicodechar{ˡ}{${}^{\texttt{l}}$}
+\newunicodechar{ᵐ}{${}^{\texttt{m}}$}
+\newunicodechar{ⁿ}{${}^{\texttt{n}}$}
+\newunicodechar{ᵒ}{${}^{\texttt{o}}$}
+\newunicodechar{ᵖ}{${}^{\texttt{p}}$}
+\newunicodechar{ʳ}{${}^{\texttt{r}}$}
+\newunicodechar{ˢ}{${}^{\texttt{s}}$}
+\newunicodechar{ᵗ}{${}^{\texttt{t}}$}
+\newunicodechar{ᵘ}{${}^{\texttt{u}}$}
+\newunicodechar{ᵛ}{${}^{\texttt{v}}$}
+\newunicodechar{ʷ}{${}^{\texttt{w}}$}
+\newunicodechar{ˣ}{${}^{\texttt{x}}$}
+\newunicodechar{ʸ}{${}^{\texttt{y}}$}
+\newunicodechar{ᶻ}{${}^{\texttt{z}}$}
+\newunicodechar{⁰}{${}^{\texttt{0}}$}
+\newunicodechar{¹}{${}^{\texttt{1}}$}
+\newunicodechar{²}{${}^{\texttt{2}}$}
+\newunicodechar{³}{${}^{\texttt{3}}$}
+\newunicodechar{⁴}{${}^{\texttt{4}}$}
+\newunicodechar{⁵}{${}^{\texttt{5}}$}
+\newunicodechar{⁶}{${}^{\texttt{6}}$}
+\newunicodechar{⁷}{${}^{\texttt{7}}$}
+\newunicodechar{⁸}{${}^{\texttt{8}}$}
+\newunicodechar{⁹}{${}^{\texttt{9}}$}
+\newunicodechar{⁻}{${}^{\texttt{-}}$}
+\newunicodechar{ᵒ}{${}^{\texttt{o}}$}
+\newunicodechar{ᵖ}{${}^{\texttt{ω}}$}
+\newunicodechar{⁻}{${}^{\texttt{-}}$}
+\newunicodechar{¹}{${}^{\texttt{1}}$}
+\newunicodechar{₀}{${}_{\texttt{0}}$}
+\newunicodechar{₁}{${}_{\texttt{1}}$}
+\newunicodechar{₂}{${}_{\texttt{2}}$}
+\newunicodechar{₃}{${}_{\texttt{3}}$}
+\newunicodechar{₄}{${}_{\texttt{4}}$}
+\newunicodechar{₅}{${}_{\texttt{5}}$}
+\newunicodechar{₆}{${}_{\texttt{6}}$}
+\newunicodechar{₇}{${}_{\texttt{7}}$}
+\newunicodechar{₈}{${}_{\texttt{8}}$}
+\newunicodechar{₉}{${}_{\texttt{9}}$}
+\newunicodechar{𝔸}{$\mathbb{A}$}
+\newunicodechar{𝔹}{$\mathbb{B}$}
+\newunicodechar{ℂ}{$\mathbb{C}$}
+\newunicodechar{𝔻}{$\mathbb{D}$}
+\newunicodechar{𝔼}{$\mathbb{E}$}
+\newunicodechar{𝔽}{$\mathbb{F}$}
+\newunicodechar{𝔾}{$\mathbb{G}$}
+\newunicodechar{ℍ}{$\mathbb{H}$}
+\newunicodechar{𝕀}{$\mathbb{I}$}
+\newunicodechar{𝕁}{$\mathbb{J}$}
+\newunicodechar{𝕂}{$\mathbb{K}$}
+\newunicodechar{𝕃}{$\mathbb{L}$}
+\newunicodechar{𝕄}{$\mathbb{M}$}
+\newunicodechar{ℕ}{$\mathbb{N}$} 
+\newunicodechar{𝕆}{$\mathbb{O}$}
+\newunicodechar{ℙ}{$\mathbb{P}$}
+\newunicodechar{ℚ}{$\mathbb{Q}$}
+\newunicodechar{ℝ}{$\mathbb{R}$}
+\newunicodechar{𝕊}{$\mathbb{S}$}
+\newunicodechar{𝕋}{$\mathbb{T}$} 
+\newunicodechar{𝕌}{$\mathbb{U}$}
+\newunicodechar{𝕍}{$\mathbb{V}$}
+\newunicodechar{𝕎}{$\mathbb{W}$}
+\newunicodechar{𝕏}{$\mathbb{X}$}
+\newunicodechar{𝕐}{$\mathbb{Y}$}
+\newunicodechar{ℤ}{$\mathbb{Z}$}
+\newunicodechar{𝕒}{$\mathbb{a}$}
+\newunicodechar{𝕓}{$\mathbb{b}$}
+\newunicodechar{𝕔}{$\mathbb{c}$}
+\newunicodechar{𝕕}{$\mathbb{d}$}
+\newunicodechar{𝕖}{$\mathbb{e}$}
+\newunicodechar{𝕗}{$\mathbb{f}$}
+\newunicodechar{𝕘}{$\mathbb{g}$}
+\newunicodechar{𝕙}{$\mathbb{h}$}
+\newunicodechar{𝕚}{$\mathbb{i}$}
+\newunicodechar{𝕛}{$\mathbb{j}$}
+\newunicodechar{𝕜}{$\mathbb{k}$}%𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫
+\newunicodechar{𝕝}{$\mathbb{l}$} 
+\newunicodechar{𝕞}{$\mathbb{m}$}
+\newunicodechar{𝕟}{$\mathbb{n}$}
+\newunicodechar{𝕠}{$\mathbb{o}$}
+\newunicodechar{𝕡}{$\mathbb{p}$}
+\newunicodechar{𝕢}{$\mathbb{q}$}
+\newunicodechar{𝕣}{$\mathbb{r}$}
+\newunicodechar{𝕤}{$\mathbb{s}$}
+\newunicodechar{𝕥}{$\mathbb{t}$}
+\newunicodechar{𝕦}{$\mathbb{u}$}
+\newunicodechar{𝕧}{$\mathbb{v}$}
+\newunicodechar{𝕨}{$\mathbb{w}$}
+\newunicodechar{𝕩}{$\mathbb{x}$}
+\newunicodechar{𝕪}{$\mathbb{y}$}
+\newunicodechar{𝕫}{$\mathbb{z}$}
+\newunicodechar{𝚫}{$\Delta$}
+\newunicodechar{ʃ}{$\int$}
+\newunicodechar{∪}{$\cup$}
+\newunicodechar{∩}{$\cap$}
+\newunicodechar{±}{$\pm$}
+\newunicodechar{𝔄}{$\mathfrak{A}$}
+
+
+
+
+\newunicodechar{𝔅}{$\mathfrak{B}$}
+\newunicodechar{ℭ}{$\mathfrak{C}$}
+\newunicodechar{𝔇}{$\mathfrak{D}$}
+\newunicodechar{𝔈}{$\mathfrak{E}$}
+\newunicodechar{𝔉}{$\mathfrak{F}$}
+\newunicodechar{𝔊}{$\mathfrak{G}$}
+\newunicodechar{ℌ}{$\mathfrak{H}$}
+\newunicodechar{ℑ}{$\mathfrak{I}$}
+\newunicodechar{𝔍}{$\mathfrak{J}$}
+\newunicodechar{𝔎}{$\mathfrak{K}$}
+\newunicodechar{𝔏}{$\mathfrak{L}$}
+\newunicodechar{𝔐}{$\mathfrak{M}$}
+\newunicodechar{𝔑}{$\mathfrak{N}$}
+\newunicodechar{𝔒}{$\mathfrak{O}$}
+\newunicodechar{𝔓}{$\mathfrak{P}$}
+\newunicodechar{𝔔}{$\mathfrak{Q}$}
+\newunicodechar{ℜ}{$\mathfrak{R}$}
+\newunicodechar{𝔖}{$\mathfrak{S}$}
+\newunicodechar{𝔗}{$\mathfrak{T}$}
+\newunicodechar{𝔘}{$\mathfrak{U}$}
+\newunicodechar{𝔙}{$\mathfrak{V}$}
+\newunicodechar{𝔚}{$\mathfrak{W}$}
+\newunicodechar{𝔛}{$\mathfrak{X}$}
+\newunicodechar{𝔜}{$\mathfrak{Y}$}
+\newunicodechar{ℨ}{$\mathfrak{Z}$}
+
+\newunicodechar{𝔞}{$\mathfrak{a}$}
+\newunicodechar{𝔟}{$\mathfrak b$}
+\newunicodechar{𝔠}{$\mathfrak{c}$}
+\newunicodechar{𝔡}{$\mathfrak{d}$}
+\newunicodechar{𝔢}{$\mathfrak{e}$}
+\newunicodechar{𝔣}{$\mathfrak{f}$}
+\newunicodechar{𝔤}{$\mathfrak{g}$}
+\newunicodechar{𝔥}{$\mathfrak{h}$}
+\newunicodechar{𝔦}{$\mathfrak{i}$}
+\newunicodechar{𝔧}{$\mathfrak{j}$}
+\newunicodechar{𝔨}{$\mathfrak{k}$}
+\newunicodechar{𝔩}{$\mathfrak{l}$}
+\newunicodechar{𝔪}{$\mathfrak{m}$}
+\newunicodechar{𝔫}{$\mathfrak{n}$}
+\newunicodechar{𝔬}{$\mathfrak{o}$}
+\newunicodechar{𝔭}{$\mathfrak{ω}$}
+\newunicodechar{𝔮}{$\mathfrak{q}$}
+\newunicodechar{𝔯}{$\mathfrak{r}$}
+\newunicodechar{𝔰}{$\mathfrak{s}$}
+\newunicodechar{𝔱}{$\mathfrak{t}$}
+\newunicodechar{𝔲}{$\mathfrak{u}$}
+\newunicodechar{𝔳}{$\mathfrak{v}$}
+\newunicodechar{𝔴}{$\mathfrak{w}$}
+\newunicodechar{𝔵}{$\mathfrak{x}$}
+\newunicodechar{𝔶}{$\mathfrak{y}$}
+\newunicodechar{𝔷}{$\mathfrak{z}$}
+
+\newunicodechar{𝐀}{${\bf{A}}$}
+\newunicodechar{𝐁}{${\bf{B}}$}
+\newunicodechar{𝐂}{${\bf{C}}$}
+\newunicodechar{𝐃}{${\bf{D}}$}
+\newunicodechar{𝐄}{${\bf{E}}$}
+\newunicodechar{𝐅}{${\bf{F}}$}
+\newunicodechar{𝐆}{${\bf{G}}$}
+\newunicodechar{𝐇}{${\bf{H}}$}
+\newunicodechar{𝐈}{${\bf{I}}$}
+\newunicodechar{𝐉}{${\bf{J}}$}
+\newunicodechar{𝐊}{${\bf{K}}$}
+\newunicodechar{𝐋}{${\bf{L}}$}
+\newunicodechar{𝐌}{${\bf{M}}$}
+\newunicodechar{𝐍}{${\bf{N}}$}
+\newunicodechar{𝐎}{${\bf{O}}$}
+\newunicodechar{𝐏}{${\bf{P}}$}
+\newunicodechar{𝐐}{${\bf{Q}}$}
+\newunicodechar{𝐑}{${\bf{R}}$}
+\newunicodechar{𝐒}{${\bf{S}}$}
+\newunicodechar{𝐓}{${\bf{T}}$}
+\newunicodechar{𝐔}{${\bf{U}}$}
+\newunicodechar{𝐕}{${\bf{V}}$}
+\newunicodechar{𝐖}{${\bf{W}}$}
+\newunicodechar{𝐗}{${\bf{X}}$}
+\newunicodechar{𝐘}{${\bf{Y}}$}
+\newunicodechar{𝐙}{${\bf{Z}}$}
+
+\newunicodechar{𝐚}{${\bf{a}}$}
+\newunicodechar{𝐛}{${\bf{b}}$}
+\newunicodechar{𝐜}{${\bf{c}}$}
+\newunicodechar{𝐝}{${\bf{d}}$}
+\newunicodechar{𝐞}{${\bf{e}}$}
+\newunicodechar{𝐟}{${\bf{f}}$}
+\newunicodechar{𝐠}{${\bf{g}}$}
+\newunicodechar{𝐡}{${\bf{h}}$}
+\newunicodechar{𝐢}{${\bf{i}}$}
+\newunicodechar{𝐣}{${\bf{j}}$}
+\newunicodechar{𝐤}{${\bf{k}}$}
+\newunicodechar{𝐥}{${\bf{l}}$}
+\newunicodechar{𝐦}{${\bf{m}}$}
+\newunicodechar{𝐧}{${\bf{n}}$}
+\newunicodechar{𝐨}{${\bf{o}}$}
+\newunicodechar{𝐩}{${\bf{ω}}$}
+\newunicodechar{𝐪}{${\bf{q}}$}
+\newunicodechar{𝐫}{${\bf{r}}$}
+\newunicodechar{𝐬}{${\bf{s}}$}
+\newunicodechar{𝐭}{${\bf{t}}$}
+\newunicodechar{𝐮}{${\bf{u}}$}
+\newunicodechar{𝐯}{${\bf{v}}$}
+\newunicodechar{𝐰}{${\bf{w}}$}
+\newunicodechar{𝐱}{${\bf{x}}$}
+\newunicodechar{𝐲}{${\bf{y}}$}
+\newunicodechar{𝐳}{${\bf{z}}$}
+
+\newunicodechar{⊣}{\ensuremath{\dashv}}
+\newunicodechar{ॱ}{${}^{\cdot}$}
+\newunicodechar{𛲔}{${}_{\cdot}$}
+\newunicodechar{⋯}{$\cdots$}
+\newunicodechar{⇄}{$\rightleftarrows$}
+\newunicodechar{⇆}{$\leftrightarrows$}
+
+\newunicodechar{ꜝ}{$\raisebox{1ex}{\scalebox{0.5}{\texttt{!}}}$}
+\newunicodechar{ꜞ}{$\raisebox{1ex}{\scalebox{0.5}{\texttt{¡}}}$}
+
+
+
+%This is notation we will use for categories
+
+
+\newunicodechar{𝟙}{$\mathbb{1}$}
+\newunicodechar{∘}{$\circ$}
+
+%This is notation we will use for twocategories
+
+
+\newunicodechar{𝟏}{${\bold{1}}$}
+\newunicodechar{⭢}{$\longrightarrow$}
+\newunicodechar{•}{${\bullet}$}
+\newunicodechar{∙}{${\bullet}$}
+
+%This is notation we will use for ∞-ℂ𝕒𝕥
+
+\newunicodechar{よ}{$\includegraphics[width=0.27cm,height=0.27cm]{yon.png}$}
+\newunicodechar{⊥}{$\bot$}
+\newunicodechar{∼}{$\sim$}
+\newunicodechar{≃}{$\simeq$}
+\newunicodechar{≅}{$\cong$}
+\newunicodechar{∞}{$\infty$}
+
+\newunicodechar{α}{$\alpha$}
+\newunicodechar{β}{$\beta$}
+\newunicodechar{γ}{$\gamma$}
+\newunicodechar{δ}{$\delta$}
+\newunicodechar{ε}{$\epsilon$}
+\newunicodechar{η}{$\eta$}
+\newunicodechar{ζ}{$\zeta$}
+\newunicodechar{θ}{$\theta$}
+\newunicodechar{ι}{$\iota$}
+\newunicodechar{μ}{$\mu$}
+\newunicodechar{κ}{$\kappa$}
+\newunicodechar{λ}{$\lambda$}
+\newunicodechar{ρ}{$\rho$}
+\newunicodechar{π}{$\pi$}
+\newunicodechar{σ}{$\sigma$}
+\newunicodechar{τ}{$\tau$}
+\newunicodechar{υ}{$\upsilon$}
+\newunicodechar{φ}{$\phi$}
+\newunicodechar{ψ}{$\psi$}
+\newunicodechar{ξ}{$\xi$}
+\newunicodechar{χ}{$\chi$}
+\newunicodechar{ω}{$\omega$}
+
+\newunicodechar{⊗}{$\otimes$}
+
+\makeatletter
+\newcommand*{\shifttext}[2]{\settowidth{\@tempdima}{#2}\makebox[\@tempdima]{\hspace*{#1}#2}}
+\makeatother
+\definecolor{Red}{cmyk}{0.1, 0.70, 0.65, 0.00, 1.00}
+\definecolor{Blue}{cmyk}{0.9, 0.2, 0.2, 0.00, 1.00}
+\definecolor{Yellow}{cmyk}{0.0, 0.00, 0.7, 0.00, 0.5}
+\definecolor{Green}{cmyk}{0.6, 0.0, 0.6, 0.00, 1.00}
+\definecolor{Purple}{cmyk}{0.8, 0.3, 0.3, 0.00, 1.00}
+\definecolor{Orange}{cmyk}{0.0, 0.3, 0.7, 0.00, 1.00}
+\definecolor{Grey}{cmyk}{0.13, 0.13, 0.13, 0.00, 1.00}
+\newcounter{definitioncounter}
+\setcounter{definitioncounter}{1}
+\newcounter{theoremcounter}
+\setcounter{theoremcounter}{1}
+\newcounter{printcounter}
+\setcounter{printcounter}{1}
+\newcounter{examplecounter}
+\setcounter{examplecounter}{1}
+\newcounter{ccounter}
+\setcounter{ccounter}{1}
+\newcounter{pcounter}
+\setcounter{pcounter}{1}
+\newcounter{lcounter}
+\setcounter{lcounter}{1}
+\newcounter{sectioncount}
+\newcounter{subsectioncount}
+\setcounter{sectioncount}{1}
+\renewcommand{\section}[1]{\newpage\ \\ \ \\ \begin{center} \scalebox{1.5}{\texttt{\thesectioncount . #1}} \stepcounter{sectioncount} \setcounter{subsectioncount}{1} \end{center} \begin{center} \ \\ \ \\ \thispagestyle{empty} \end{center}}
+\renewcommand{\subsection}[1]{\texttt{\thesubsectioncount . #1} \stepcounter{subsectioncount}}
+\renewcommand{\backslash}{\reflectbox{\texttt{/}}}
+
+\newcounter{chaptercount}
+\renewcommand{\chapter}[1]{
+\newpage
+{
+\Huge 
+\begin{center}
+\ \\
+\ \\
+\thispagestyle{empty}
+\texttt{#1}
+\end{center}}
+\ \\
+\ \\
+}
+
+\newcounter{partcount}
+\stepcounter{partcount}
+\renewcommand{\part}[1]{
+\newpage
+{
+\Huge 
+\begin{center}
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\thispagestyle{empty}
+\texttt{PART {\thepartcount}: #1}
+\stepcounter{partcount}
+\end{center}}
+\ \\
+\ \\
+}
+
+
+\begin{document}
+
+\AddToShipoutPicture*
+    {\put(540,720){
+
+    \href{http://www.linearlibrary.net}{\includegraphics[width=2cm,height=2cm]{ll.png}}
+
+    }}
+
+\AddToShipoutPicture*
+  {\put(470,737){
+
+    \href{http://www.www.github.com/linlib/ThePuppeSequenceandTwoVariations/blob/main/ThePuppeSequenceandTwoVariations.pdf}{\texttt{.pdf file}}\\
+
+  }}
+
+\AddToShipoutPicture*
+  {\put(470,752){
+    \href{https://www.github.com/linlib/ThePuppeSequenceandTwoVariations/blob/main/ThePuppeSequenceandTwoVariations.tex}{\texttt{.tex file}}\\
+
+  }}
+
+\AddToShipoutPicture*
+  {\put(470,767){
+    \href{http://www.github.com/linlib/ThePuppeSequenceandTwoVariations/blob/main/ThePuppeSequenceandTwoVariations.py}{\texttt{.py file}}\\
+  }}
+
+  \AddToShipoutPicture*
+  {\put(470,722){
+    \href{https://github.com/linlib/ThreeWhiteheadTheorems/blob/main/ThreeWhiteheadTheorems.lean}{\texttt{.lean file}}
+
+  }}
+
+
+\begin{center}
+\begin{tcolorbox}[width=4.7in,colback={white}]
+\begin{center}
+\scalebox{3}{\texttt{The Puppe Sequence}}\\
+\ \\
+\scalebox{3}{\texttt{and}}\\
+\ \\
+\scalebox{3}{\texttt{Two Variations}}\\
+\ \\
+\end{center}
+\end{tcolorbox}
+\end{center}
+\ \\
+%LEAN: 
+\begin{center}
+\begin{tcolorbox}[width=6in,colback={white}]
+\begin{center}
+\ \\
+\scalebox{0.85}{$\cdots$ ⭢ π⃗₀.obj (Ω⃗.obj C) ⭢ π⃗₀.obj (Ω⃗.obj D) $\circlearrowright$ π⃗₀.obj (ω⃗.obj ???) ⭢ (π⃗₀.obj C) ⭢ (π⃗₀.obj D)}\\
+\ \\
+\scalebox{0.85}{$\cdots$ ⭢ π⃡₀.obj (Ω⃡.obj E) ⭢ π⃡₀.obj (Ω⃡.obj B) $\circlearrowright$ π⃡₀.obj (ω⃡.obj ???) ⭢ (π⃡₀.obj E) ⭢ (π⃡₀.obj B)}\\
+\ \\
+\scalebox{0.85}{$\cdots$ ⭢ π₀.obj (Ω.obj E₀) ⭢ π₀.obj (Ω.obj B₀) ⭢ π₀.obj (ω.obj ???) ⭢ π₀.obj (E₀) ⭢ π₀.obj(B₀)}\\
+\ \\
+\end{center}
+\end{tcolorbox}
+\end{center}
+
+
+
+\begin{center}
+\texttt{Plans to define three variations of the}\\
+\texttt{Puppe sequence of homotopy groups in and}\\
+\texttt{Lean 4, and to prove their exactness,}\\
+\texttt{with extensive use of Mathlib 4}
+\end{center}
+
+
+\thispagestyle{empty}
+
+
+\newpage
+
+
+\begin{center}
+
+\pagecolor{white}
+\color{black}
+
+
+
+
+\end{center}
+
+\thispagestyle{empty}
+
+
+
+
+\newpage
+\pagecolor{white}
+\color{black}
+\ \\
+\ \\
+\thispagestyle{empty}
+\begin{center}
+Copyright\ \textcopyright \ October 19th 2023 Elliot Dean Young and Jiazhen Xia.\ All rights reserved.\\
+\end{center}
+\large %%%%%%%% HERE IS THE large LARGE size textsize set text size
+\newpage 
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\thispagestyle{empty}
+ 
+\newpage
+
+
+
+\newpage
+
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+\ \\
+
+We wish to acknowledge the collaborative efforts of E. Dean Young and Jiazhen Xia. Dean Young initially formulated the introduction with twelve goals, posting them on the Lean Zulip in August of 2023. Together the authors are pursuing these plans as a long term project.\\
+
+
+
+\newpage
+
+
+
+\newpage
+\section{Contents}
+
+The nth configuration space of the little k-cubes operad is the space of n distinct ordered points in (0,1)ᵏ.\\
+
+
+\iffalse
+3 goals (3 puppe sequences)
+3 wedge products and three internal homs
+3 categories of pairs with wedge products and internal homs
+\fi
+
+\iffalse
+Ω⃗, Ω⃡, Ω⃗₀, Ω⃡₀ are the ones I construct and Ω Mathlib's.
+\fi
+
+\iffalse
+cofibrations, fibrations, exactness of hom, and exactness of smash
+\fi
+
+The table of contents below reflects the tentative long-term goals of the authors, with the main goal the pursuit of the Whitehead theorem for a point-set model involving Mathlib's predefined homotopy groups.\\
+
+{
+\footnotesize
+\begin{longtable}{|| l || l ||} 
+\hline
+\multicolumn{1}{||c||}{$\texttt{Section}$} & \multicolumn{1}{|c||}{$\texttt{Description}$} \\
+\hline
+\hline
+Unfinished & \\
+\hline
+Contents & \\
+\hline
+Unicode & \\
+\hline
+Introduction & \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{PART I: } Based connected ∞-groupoids} \\
+\hline \hline
+ \multicolumn{2}{||c||}{\texttt{Chapter 1: }The Puppe Sequence for Based Connected ∞-Groupoids} \\
+\hline \hline
+The Puppe sequence & \scalebox{0.8}{$\cdots$ ⭢ π₁(E₀) ⭢ π₁(B₀) ⭢ π₀(ω (𝟙 X₀)) ⭢ π₀(E₀) ⭢ π₀(B₀)}  \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{Chapter 2: }The Smash Product in ∞-Grpd₀} \\
+\hline \hline
+Pair ∞-Grpd₀ & The category of pairs \\
+\hline
+∧$\_$(Pair ∞-Grpd₀), [,]$\_$(Pair ∞-Grpd₀) & The monoidal closed structure on Pair ∞-Grpd₀ \\
+\hline
+D(Pair ∞-Grpd₀) & The derived category of pairs \\
+\hline
+∧$\_$(D(Pair ∞-Grpd₀)), [,]$\_$(D(Pair ∞-Grpd₀)) & The cartesian closed structure on D(Pair ∞-Grpd₀) \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{Chapter 3: }The Triangle Theorems for ∞-Grpd₀} \\
+\hline \hline
+The Cycle Theorem & ... \\
+\hline
+The Derived Exact Sequence & ... \\
+\hline
+The Octahedral Axiom & ... \\
+\hline 
+Colimits of Inclusions & ... \\
+\hline
+The Mayer-Vietoris Sequence & ... \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{PART II: } Based connected ∞-categories} \\
+\hline \hline
+ \multicolumn{2}{||c||}{\texttt{Chapter 4: }The Puppe Sequence for Based Connected ∞-Categories} \\
+\hline \hline
+The Puppe sequence & \scalebox{0.8}{$\cdots$ ⭢ π₁(E₀) ⭢ π₁(B₀) ⭢ π₀(ω (𝟙 X₀)) ⭢ π₀(E₀) ⭢ π₀(B₀)}  \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{Chapter 5: }The Smash Product in ∞-Cat₀} \\
+\hline \hline
+Pair ∞-Cat₀ & The category of pairs \\
+\hline
+∧$\_$(Pair ∞-Cat₀), [,]$\_$(Pair ∞-Grpd₀) & The monoidal closed structure on Pair ∞-Cat₀ \\
+\hline
+D(Pair ∞-Cat₀) & The derived category of pairs \\
+\hline
+∧$\_$(D(Pair ∞-Cat₀)), [,]$\_$(D(Pair ∞-Cat₀)) & The cartesian closed structure on D(Pair ∞-Cat₀) \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{Chapter 6: }The Triangle Theorems for ∞-Cat₀} \\
+\hline \hline
+The Cycle Theorem & ... \\
+\hline
+The Derived Exact Sequence & ... \\
+\hline
+The Octahedral Axiom & ... \\
+\hline 
+Colimits of Inclusions & ... \\
+\hline
+The Mayer-Vietoris Sequence & ... \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{PART III: } ∞-Groupoids} \\
+\hline \hline 
+ \multicolumn{2}{||c||}{\texttt{Chapter 7: } The Puppe sequence for ∞-groupoids} \\
+\hline \hline
+The Puppe sequence & \scalebox{0.8}{$\cdots$ ⭢ π⃡₁(E) ⭢ π⃡₁(B) $\circlearrowright$ π⃡₀(ω⃡ (𝟙 C) f) ⭢ π⃡₀(E) ⭢ π⃡₀(B)} \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{Chapter 8: } The Smash Product in ∞-Grpd} \\
+\hline \hline
+Pair Grpd & The category of pairs of ∞-groupoids \\
+\hline
+∧$\_$(Pair ∞-Grpd), [,]$\_$(Pair ∞-Grpd) & The cartesian closed structure on Pair ∞-Grpd \\
+\hline
+D(Pair ∞-Grpd) & The derived category of pairs of ∞-groupoids \\
+\hline
+∧$\_$(D(Pair ∞-Grpd)), [,]$\_$(D(Pair ∞-Grpd)) & The cartesian closed structure on D(Pair ∞-Grpd) \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{Chapter 9: } The Triangle Theorems for ∞-Grpd} \\
+\hline \hline
+The Cycle Theorem & ... \\
+\hline
+The Derived Exact Sequence & ... \\
+\hline
+The Octahedral Axiom & ... \\
+\hline 
+Colimits of Inclusions & ... \\
+\hline
+The Mayer-Vietoris Sequence & ... \\
+\hline 
+Fibrations and the exactness of &  \\
+\hline
+Cofibrations and the exactness of & \\
+\hline
+Fibrations and the exactness of &  \\
+\hline
+Cofibrations and the exactness of & \\
+\hline \hline
+ \multicolumn{2}{||c||}{\texttt{PART III: } The Puppe Sequence for ∞-Categories} \\
+\hline \hline
+ \multicolumn{2}{||c||}{\texttt{Chapter 10: }The Puppe Sequence for ∞-Categories} \\
+\hline \hline
+The Puppe sequence & \scalebox{0.8}{$\cdots$ ⭢ π⃗₁(C) ⭢ π⃗₁(D) $\circlearrowright$ π⃗₀(ω⃗ (𝟙 D) f) ⭢ π⃗₀(C) ⭢ π⃗₀(D)}  \\
+\hline \hline
+\multicolumn{2}{||c||}{\texttt{Chapter 11: }The Smash Product in ∞-Cat} \\
+\hline \hline
+Pair ∞-Cat & The category of pairs \\
+\hline
+∧$\_$(Pair ∞-Cat), [,]$\_$(Pair ∞-Cat) & The cartesian closed structure on Pair Grpd₀ \\
+\hline
+D(Pair ∞-Cat) & The derived category of pairs \\
+\hline
+∧$\_$(D(Pair ∞-Cat)), [,]$\_$(D(Pair ∞-Cat)) & The cartesian closed structure on D(Pair ∞-Cat) \\
+\hline
+\multicolumn{2}{||c||}{\texttt{Chapter 12: }The Triangle Theorems for ∞-Cat} \\
+\hline \hline
+The Cycle Theorem & ... \\
+\hline
+The Derived Exact Sequence & ... \\
+\hline
+The Octahedral Axiom & ... \\
+\hline 
+Colimits of Inclusions & ... \\
+\hline 
+The Mayer-Vietoris Sequence & ... \\
+\hline
+Fibrations and the exactness of &  \\
+\hline
+Cofibrations and the exactness of &  \\
+\hline \hline
+\end{longtable}
+}
+
+
+\newpage
+\section{Introduction}
+
+{\bf The main goal of this repository is to define the Puppe sequence and to prove its exactness}. I would also like to pursue two variations of the Puppe sequence, featuring internal groupoids and internal groupoid actions, and internal categories and internal presheaves, respectively, instead of internal groups and internal group actions. Note that we may construct the Puppe sequence so as to feature groups, group actions, abelian groups, and abelian group actions, which will allow us to use Mathlib's pre-existing structures.\\
+
+The document is very incomplete, but expresses intentions and plans that I have. I hope that the highly tabulated approach can make for something maintainable and usable. The Puppe sequence formalization will take place after the completion of the Whitehead theorem, which Jiazhen Xia and I have already make a lot of progress on.\\
+
+In the thread I started originally, I had arranged for the most difficult Puppe sequence, involving internal categories and internal presheaves, to be defined and proven first. Unfortunately this approach requires a difficult analogue of ```jar filling'''. Later I assimilated the suggestion of Joël Riou that we start with the Whitehead theorem and Puppe sequence for CW-complexes, in which a jar shape and its higher dimensional analogues can be filled. Jiazhen and I have completed this and the code can be found in the repository of ```TheWhiteheadTheoremandTwoVariations```.\\
+
+We will use two models of each of the following categories in the theorems above:
+\begin{enumerate}[(i)]
+\item We model ∞-Grpd₀ : Cat firstly as the based connected objects of a convenient category of topological spaces, and secondly as the category of based connected Kan complexes.
+\item We model ∞-Grpd : Cat firstly as a convenient category of topological spaces, and secondly as the category of Kan complexes.
+\item We model ∞-Cat : Cat both combinatorially with quasicategories and using a point-set model ().
+\end{enumerate}
+
+This choice accords with the standard approach to the third theorem, in which one typically chooses both a combinatorial and point-set model, with the former featuring a geometric realization functor into the latter ($\texttt{Mathlib}$ already has this).\\
+
+We will use $\texttt{Mathlib 4}$'s category theory, particularly their categories, functors, and natural transformations:
+
+\begin{enumerate}
+\item Categories (see Mathlib's $\texttt{Category X}$ here; these can be bundled into $\texttt{category}$)
+\item Functors (see Mathlib's $\texttt{Functor C D}$ here; these can be bundled into $\texttt{functor}$)
+\item Natural transformations (see Mathlib's $\texttt{NatTrans F G}$ here; these can be bundled into $\texttt{natural\_transform}$)
+\item Equations between natural transformations (see Mathlib's $\texttt{NatExt}$ here; these are related to our $\texttt{equation}$)
+\end{enumerate}
+
+I also am maintaining a category theory repository I have with Shanghe Chen, which follows the book ```Galois Theories''' by George Janelidze and Francis Borceux. The main addition it makes is that of a seven-entry strict twocategory (as opposed to a particular bicategory). Perhaps the most interesting feature is that both the seven entry category structure and the seven entry strict twocategory structure are instances of the thirteen entry internal category structure used in this repository and which will be defined in the repository concerning the Whitehead theorem.\\
+
+While the functors πₙ occuring in the main theorems above are already defined in $\texttt{Mathlib}$ for the desired point-set model, the functors π⃗ₙ and π⃡ₙ are not, and their definition will require great care. Here are their types:
+
+\begin{enumerate}[(i)]
+\item πₙ : Functor ∞-Grpd₀ Set
+\item π⃡ₙ : Functor ∞-Grpd Set
+\item π⃗ₙ : Functor ∞-Cat Set
+\end{enumerate}
+ 
+The πₙ's in the above are not quite the same as the ones defined in Mathlib already, but several simple lemmas concerning categorical equivalences will solve this small issue.\\
+
+We may wish to modify these types out of convenience and to accord with the pre-existing functors πₙ in $\texttt{Mathlib 4}$.\\
+
+The existence of a base point makes πₙ relatively straightforward to define, while π⃗ₙ and π⃡ₙ `grow' as n does. We also form their derived functors:
+
+\begin{enumerate}[(i)]
+\item D(π⃗ₙ) : D(∞-Cat) ⭢ D(Set) ≃ Set
+\item D(π⃡ₙ) : D(∞-Grpd) ⭢ D(Set) ≃ Set
+\item D(πₙ) : D(∞-Grpd₀) ⭢ D(Set) ≃ Set
+\end{enumerate}
+
+In the course of the repository we will need the directed path space, path space, and loop space functors as well, which fit with the analogy formed by the Whitehead theorem and its two variations:
+
+\begin{enumerate}
+\item Ω⃗ : ∞-Cat ⭢ ∞-Cat is the internal hom functor [Δ¹,-] (directed path space)
+\item Ω⃡ : ∞-Grpd ⭢ ∞-Grpd is the internal hom functor [I,-] (path space)
+\item Ω is the loop space functor
+\end{enumerate}
+
+The third theorem (c), is the one from Whitehead's original papers (these are included in the repository concerning the Whitehead theorem).\\
+
+With the choice of quasicategories as a combinatorial model, we hope to give good integration with Mathlib's existing features (though technically only the inner horns and simplices are defined, not even the category of quasicategories itself).\\
+
+In the directed context, a homotopy between two maps in ∞-Cat⁄C consists of a sequence of compatible directed homotopies with the odd morphisms in the sequence formed from reversed copies of Δ¹. Really we have two such categories, one of which consists of formal words, and another which involves ∞-categories and ∞-functors in the image of $\texttt{repl}$).\\
+
+Besides the exactness of the Puppe sequence and its two variations, my hope is that.\\
+
+We will define three different kinds of derived category:\\
+
+\begin{enumerate}
+\item D(∞-Cat) : Cat (the directed derived category of ∞-categories)
+\item D(∞-Grpd) : Cat (the derived category of ∞-groupoids)
+\item D(∞-Grpd₀) : Cat (the derived category of based ∞-groupoids)
+\end{enumerate}
+
+We then create the second kind of derived category, one for each of the objects in the respective categories above:
+
+\begin{enumerate}
+\item For C : D(∞-Cat), a category D(∞-Cat/C) : Cat
+\item For G : D(∞-Grpd), a category D(∞-Grpd/G) : Cat
+\item For G₀ : D(∞-Grpd₀), a category D(∞-Grpd₀/G₀) : Cat
+\end{enumerate}
+
+For the model built on simplicial sets, Ω⃗ will be representable by Δ¹ with respect to an internal hom, and Ω⃡ will be representable by a model of the unit interval I := [0,1].\\
+
+I would like to use the ``internal'' structures defined in ```TheWhiteheadTheoremandTwoVariations''', whose types are as follows:\\
+
+\begin{enumerate}
+\item InternalCategory : Cat → Cat 
+\item InternalPresheaf : (X : Cat) → (C : (IntCat X)) → Cat
+\item InternalGroupoid : Cat → Cat
+\item InternalGroupoidAction : (X : Cat) → (G : (IntGrpd X)) → Cat
+\item InternalGroup : Cat → Cat
+\item InternalGroupAction : (X : Cat) → (G₀ : (IntGrp X)) → Cat
+\end{enumerate}
+
+The book ``Galois theories" by Borceux and Janelidze features the middle two internal structures, and the nlab article \href{https://ncatlab.org/nlab/show/internal+category}{here} defines the first. The internal presheaf structure is fascinating and subtle, as well as similar to the internal groupoid action structure.\\
+
+The six internal structures above arise here in relation to six functors:\\
+
+\begin{enumerate}[(I)]
+\item Ω⃗ : ∞-Cat ⭢ ∞-Cat (notation for the directed path space functor, related to [Δ¹,-]). D(Ω⃗) factors through internal categories in D(∞-Cat) by a categorical equivalence D(∞-Cat) ≅ IntCat D(∞-Cat) (internal categories in D(∞-Cat))
+\item ω⃗ (𝟙 C) : ∞-Cat/C ⭢ ∞-Cat/C, the derived directed homotopy pullback with 𝟙 C. D(ω⃗ (𝟙 C)) factors through a categorical equivalence between D(∞-Cat/C) and internal P⃗C-presheaves in D(∞-Cat/C).
+\item Ω⃡ : ∞-Grpd ⭢ ∞-Grpd (notation for the path space functor [I,-]), the derived homotopy pullback of an ∞-groupoid with itself. D(Ω⃡) factors through a categorical equivalence between D(∞-Grpd) and internal groupoids in D(∞-Grpd)
+\item ω⃡ (𝟙 X) : ∞-Grpd/X ⭢ ∞-Grpd/X, the derived homotopy pullback with 𝟙 X. D(ω⃡ (𝟙 X)) factors through internal P⃡X
+\item Ω : ∞-Grpd₀ ⭢ ∞-Grpd₀, the loop space functor. D(Ω) factors through a categorical equivalence between D(∞-Grpd₀) and internal groups in D(∞-Grpd₀) (the loop space functor on connected based ∞-groupoids)
+\item ω (𝟙 X) : ∞-Grpd₀/X₀ ⭢ ∞-Grpd₀/X₀, the homotopy pullback with the base of X₀. D(ω (𝟙 X)) factors through internal PX₀-actions in based connected spaces over X₀.
+\end{enumerate}
+
+(v) in the above is shown \href{https://mathoverflow.net/questions/128883/why-omega-x-and-bg-are-adjoint-functors}{here} and (vi) in the above is shown in a typical exposition of $G$-principal bundles.\\
+
+The functors ω⃗ (𝟙 C), ω⃡ (𝟙 X), and ω (𝟙 C) in the above ensue from a more general construction:\\
+
+\begin{enumerate}
+\item For C, D : D(∞-Cat), and f : C ⭢ D, ω⃗ f : D(∞-Cat/D) ⭢ D(∞-Cat/C)   (derived directed homotopy pullback)
+\item For B, E : D(∞-Grpd), and f : E ⭢ B, ω⃡ f : D(∞-Grpd/B) ⭢ D(∞-Grpd/E) (derived homotopy pullback)
+\item For B₀, E₀ : D(∞-Grpd₀), and f : E₀ ⭢ B₀, ω f : D(∞-Grpd₀/B₀) ⭢ D(∞-Grpd₀/E₀) (homotopy pullback with the base)
+\end{enumerate}
+
+We obtain six categorical equivalences witnessed by these twelve functors (along with twelve natural isomorphisms). Here are the types of P⃗ , P⃡ , P : D(∞-Grpd₀), p⃗ (𝟙 C), p⃡ (𝟙 X), p:
+
+\begin{enumerate}
+\item The directed path space, the path space, and loop space form components of the functors P⃗, P⃡, and P, which are valued in internal categories, internal groupoids, and internal groups respectively.
+\begin{enumerate}
+\item P⃗ : D(∞-Cat) ⭢ Cat D(∞-Cat)
+\item P⃡ : D(∞-Grpd) ⭢ Grpd D(∞-Grpd)
+\item P : D(∞-Grpd₀) ⭢ Grp D(∞-Grpd) (see \href{https://mathoverflow.net/questions/128883/why-omega-x-and-bg-are-adjoint-functors}{here})
+\end{enumerate}
+\item The directed homotopy pullback, the homotopy pullback, and the homotopy pullback with the base form components of the functors Alg(Mon(ω⃗)), Alg(Mon(ω⃡)), and Alg(Mon(p)), respectively. 
+\begin{enumerate}
+\item p⃗ (𝟙 C) : D(∞-Cat⁄C) ⭢ InfPreShf D(∞-Cat⁄C) P⃗.obj C 
+\item p⃡ (𝟙 X) : D(∞-Grpd⁄X) ⭢ IntAct D(∞-Grpd⁄X) P⃡.obj X
+\item p (𝟙 X₀) : D(∞-Grpd₀⁄X₀) ⭢ IntAct₀ D(∞-Grpd₀⁄X₀) P.obj X₀
+\end{enumerate}
+\end{enumerate}
+
+Above, the functors P⃗, P⃡, P, p⃗, p⃡, and p feature Ω⃗, Ω⃡, Ω, ω⃗, ω⃡, and ω in their components, and can be related to them using constructions from Eilenberg-Moore theory.\\
+
+These six new functors combine with the functors below to form categorical equivalences:\\
+
+\begin{enumerate}
+\item The directed homotopy colimit of a point with an internal category in D(∞-Cat) as a diagram, the homotopy colimit of a constant functor with an internal internal group as a diagram
+\begin{enumerate}
+\item B⃗ : essential\_image P⃗ ⭢ D(∞-Cat)
+\item B⃡ : essential\_image P⃡ ⭢ D(∞-Grpd)
+\item B : essential\_image P ⭢ D(∞-Grpd₀) (see \href{https://mathoverflow.net/questions/128883/why-omega-x-and-bg-are-adjoint-functors}{here})
+\end{enumerate}
+\item The clutching functors are inverse to the above functors up to natural isomorphism:
+\begin{enumerate}
+\item b⃗ : essential\_image p⃗ ⭢ D(∞-Cat⁄C)
+\item b⃡ : essential\_image p⃡ ⭢ D(∞-Cat⁄C)
+\item b : essential\_image p ⭢ D(∞-Grpd₀⁄X₀) 
+\end{enumerate}
+\end{enumerate}
+
+Take special note that each of these six involves a condition ensuring that the functor B⃗ be well defined. Consider the functors:
+
+\begin{enumerate}
+\item D(IntCat ∞-Cat) ⭢ IntCat D(∞-Cat)
+\item D(IntGrpd ∞-Grpd) ⭢ IntGrpd D(∞-Grpd)
+\item D(IntGrp ∞-Grpd₀) ⭢ IntGrp D(∞-Grpd₀)
+\item D(InfPreShf ∞-Cat⁄C) P⃗C ⭢ InfPreShf D(∞-Cat⁄C) P⃗C
+\item D(IntAct ∞-Cat⁄C) P⃡X ⭢ IntAct D(∞-Cat⁄C) P⃡X
+\item D(IntAct₀ ∞-Grpd₀⁄X₀) PX₀ ⭢ IntAct₀ D(∞-Grpd₀⁄X₀) PX₀
+\end{enumerate}
+
+It may happen that a given object in the codomain of these six functors lies in their essential image. In this case, any of the six of B⃗, B⃡, B, b⃗, b⃡, b can sometimes but not always be obtained as a quotient of six functors E⃗, E⃡, E, e⃗, e⃡, e, respectively:
+
+\begin{enumerate}
+\item E⃗ : IntCat ∞-Cat ⭢ ∞-Cat
+\item E⃡ : IntGrpd ∞-Grpd ⭢ ∞-Grpd
+\item E : IntGrp ∞-Grpd₀ ⭢ ∞-Grpd₀
+\item e⃗ : PreShf ∞-Cat⁄C P⃗.obj C ⭢ ∞-Cat⁄C P⃗.obj C
+\item e⃡ : IntAct ∞-Cat⁄C P⃡.obj X ⭢ ∞-Cat⁄C P⃡.obj X
+\item e : IntAct₀ ∞-Grpd₀⁄X₀ P.obj X₀ ⭢ ∞-Grpd₀⁄X₀ P.obj X₀
+\end{enumerate}
+
+The functors above will be defined as certain homotopy colimits, themselves certain coequilizers. On the condition that an internal category is internally filtered and internally cofiltered, we can further construct the B⃗.\\
+
+We will make extensive use of Mathlib's \href{https://leanprover-community.github.io/mathlib4_docs/Mathlib/CategoryTheory/Category/Cat.html#CategoryTheory.Cat.bicategory}{bicategory of categories} and material on \href{https://github.com/leanprover-community/mathlib4/blob/bd3e369b6f82c874de0f318c71d7e0595f8a3aa4//Mathlib/AlgebraicTopology/SimplicialSet.lean#L47-L48}{simplicial sets}. We further use Mathlib's pullbacks and \href{https://github.com/leanprover-community/mathlib4/blob/bd3e369b6f82c874de0f318c71d7e0595f8a3aa4/Mathlib/CategoryTheory/Products/Basic.lean}{categorical products}, as well as their \href{https://github.com/leanprover-community/mathlib4/blob/bd3e369b6f82c874de0f318c71d7e0595f8a3aa4/Mathlib/CategoryTheory/Monad/Algebra.lean}{Eilenberg-Moore theory constructions}. I'd like to extend my appreciation to Scott Morison, Eric Wieser, Floris Van Doorn, and all the contributors who have put their efforts into creating these robust features for Mathlib 4.\\
+
+Altogether, the project gets the following ``periodic table" of 30 functors featured on the front cover:\\
+
+{\footnotesize
+\begin{center}
+\scalebox{1.5}{
+\begin{tabular}{|| l || l | l | l | l | l || l || l | l | l | l | l || } 
+\hline
+\texttt{D(}∞\texttt{-Cat)} & Σ⃗ & Ω⃗ & P⃗ & B⃗ & E⃗ & \texttt{D(}∞\texttt{-Cat/C)} & σ⃗ & ω⃗ & b⃗ & p⃗  & e⃗ \\
+\hline
+\texttt{D(}∞\texttt{-Grpd)} & Σ⃡ & Ω⃡ & P⃡ & B⃡ & E⃡ & \texttt{D(}∞\texttt{-Grpd/G)} & σ⃡ & ω⃡ & b⃡ & p⃡ & e⃡ \\
+ \hline
+\texttt{D(}∞\texttt{-Grpd₀)} & Σ & Ω & P & B & E & \texttt{D(}∞\texttt{-Grpd₀/G₀)} & σ & ω & b & p & e \\
+ \hline
+\end{tabular}}
+\end{center}}
+
+Here are the names of the symbols featured above:
+
+{\footnotesize
+\begin{center}
+\begin{tabular}{|| l | l | l | l | l || } 
+\hline
+\texttt{Suspensional} & \texttt{Deductive} & \texttt{Remembrant} & \texttt{Delooping} & \texttt{Free} \\
+\hline
+\hline
+Σ⃗ \scalebox{0.55}{(Directed suspension)} & Ω⃗ \scalebox{0.55}{(Directed path space)} & P⃗ \scalebox{0.55}{(Remembrant derived directed path space)} & B⃗ \scalebox{0.55}{(Classifying space for internal categories)}  & E⃗ \\
+\hline
+Σ⃡ \scalebox{0.55}{(Suspensionoid)} & Ω⃡ \scalebox{0.55}{(Path space)} & P⃡ \scalebox{0.55}{(Remembrant derived path space)} & B⃡ \scalebox{0.55}{(Classifying space for internal groupoids)} & E⃡  \\
+ \hline
+Σ \scalebox{0.55}{(Suspension)} & Ω \scalebox{0.55}{(Loop space)} & P \scalebox{0.55}{(Remembrant derived loop space)} & B \scalebox{0.55}{(Classifying space for internal groups)} & E \\
+ \hline
+ \hline
+σ⃗ & ω⃗ \scalebox{0.55}{(Directed homotopy pushout with a point)} & p⃗ \scalebox{0.55}{(Remembrant derived directed homotopy pullback)} & b⃗ \scalebox{0.55}{(Classifying space for internal presheaves)} & e⃗ \\
+ \hline
+σ⃡ & ω⃡ \scalebox{0.55}{(Homotopy pushout with a point)} & p⃡ \scalebox{0.55}{(Remembrant derived homotopy pullback)} &  b⃡ \scalebox{0.55}{(Classifying space for internal groupoid actions)} & e⃡ \\
+ \hline
+σ & ω \scalebox{0.55}{(Homotopy fiber)} & p \scalebox{0.55}{(Remembrant derived homotopy fiber)} & b \scalebox{0.55}{(Classifying space for internal group actions)} & e \\
+ \hline
+\end{tabular}
+\end{center}}
+\ \\
+
+The term ``remembrant" in the above is not common terminology. It is intended to mean that the second collumn features functors which are valued in categories of internal objects wheras the left collumn forms particular components of those structures.\\
+
+The notation here is both an attempt to make the three-fold division of the project (three Whitehead theorems, three Puppe sequences, etc.) manifest while sticking to the standard notation for the established theorems (Σ, Ω, B, E). In the above, P could be said to stand for ``(remembrant) path space" and p for ``(remembrant) pullback", while at the same time this matches the theme that our capital letters reflect various internal structures and that their lower-case forms reflect the corresponding actions.\\
+
+The mentioned ``delooping principals", which identify inverses to the remembrant functors $\textit{on their essential image}$, form important consequences of the three Puppe sequences. All in all, there are nine important theorems we want to show:\\
+
+%LEAN: 
+\begin{center}
+\begin{tcolorbox}[width=6.6in,colback={white},title={\begin{center}\texttt{Twelve Goals}  \end{center}},colbacktitle=Yellow,coltitle=black]
+\begin{enumerate}[(I)]
+\item \scalebox{0.9}{Define the Puppe sequence for ∞-categories and prove its exactness.}
+\item \scalebox{0.9}{Define and prove the $\texttt{internal\_category\_delooping\_principal : Type}$.}
+\item \scalebox{0.9}{Define and prove the $\texttt{internal\_sheaf\_delooping\_principal : Type}$.}
+\item \scalebox{0.9}{Define the Puppe sequence for ∞-groupoids and prove its exactness}
+\item \scalebox{0.9}{Define and prove the $\texttt{internal\_groupoid\_delooping\_principal : Type}$.}
+\item \scalebox{0.9}{Define and prove the $\texttt{internal\_groupoid\_action\_delooping\_principal : Type}$.}
+\item \scalebox{0.9}{Define the Puppe sequence for based connected ∞-groupoids and prove its exactness}
+\item \scalebox{0.9}{Define and prove the $\texttt{internal\_group\_delooping\_principal : Type}$.}
+\item \scalebox{0.9}{Define and prove the $\texttt{internal\_group\_action\_delooping\_principal : Type}$.}
+\end{enumerate}
+\end{tcolorbox}
+\end{center}
+
+None of these theorems are currently contained in Mathlib. The last three are well-known.\\
+
+\iffalse
+Where previous approaches to ∞-categories have considered comparisons between models such as the two we will develop here, the goals above provide a unification which I would like to discuss in the section on pairs.\\
+\fi
+
+In the work that ensues, we plan to take an approach which establishes the known results before the original ones, taking advantage of the predefined πₙ functors in $\texttt{Mathlib 4}$ in the process. This decision will also help to start with smaller pull requests.\\
+
+
+\iffalse
+░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓████████▓▒░ 
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓██████▓▒░   
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        
+ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓████████▓▒░
+\fi
+\newpage
+\section{Unicode}
+
+\noindent\textcolor{Red}{\rule{16cm}{1mm}}
+\begin{center}
+\texttt{Implementation Progress}
+\end{center}
+\noindent\textcolor{Red}{\rule{16cm}{1mm}}
+
+\noindent\textcolor{Red}{\rule{16cm}{1mm}}
+\begin{center}
+\texttt{Writing Progress}
+\end{center}
+\noindent\textcolor{Red}{\rule{16cm}{1mm}}
+
+Here is a list of the unicode characters we will use:
+
+{\footnotesize
+\begin{center}
+\begin{tabular}{|| l || l || l || l ||} 
+\hline
+$\texttt{Symbol}$ & $\texttt{Unicode}$ & \texttt{VSCode shortcut} & $\texttt{Use}$\\
+\hline
+\hline
+\multicolumn{4}{||c||}{\texttt{Lean's Kernel}} \\
+\hline
+\hline
+× & 2A2F & \backslash\texttt{times} & Product of types\\
+\hline
+→ & 2192 & \backslash\texttt{rightarrow}  & Hom of types\\
+\hline
+⟨,⟩ & 27E8,27E9 & \backslash\texttt{langle},\backslash\texttt{rangle}  & Product term introduction\\
+\hline
+↦ & 21A6 &\backslash\texttt{mapsto}  & Hom term introduction\\
+\hline
+∧ & 2227 &\backslash\texttt{wedge}  & Conjunction \\
+\hline
+∨ & 2228 &\backslash\texttt{vee}  & Disjunction \\
+\hline
+∀ & 2200 &\backslash\texttt{forall}  & Universal quantification \\
+\hline
+∃ & 2203 &\backslash\texttt{exists}  & Existential quantification\\
+\hline
+¬ & 00AC &\backslash\texttt{neg}  & Negation\\
+\hline
+\hline
+\multicolumn{4}{||c||}{\texttt{Variables and Constants}} \\
+\hline
+\hline
+ᵃ,ᵇ,ᶜ,...,ᶻ & 1D52,1D56 & & Variables and constants \\
+\hline
+⁰,¹,²,³,⁴,⁵,⁶,⁷,⁸,⁹ & 1D52,1D56 &  & Variables and constants \\
+\hline
+⁻ & 207B &  & Variables and constants \\
+\hline
+₀,₁,₂,₃,₄,₅,₆,₇,₈,₉ & 2080 - 2089 & \backslash\texttt{0}-\backslash\texttt{9} & Variables and constants\\
+\hline
+𝔸,...,ℤ & 1D538 &  &  \\
+\hline
+𝕒,...,𝕫 & 1D552 &  &  \\
+\hline
+𝐀,...,𝐙 & 1D41A &  &  \\
+\hline
+𝐚,...,𝐳 & 1D41A &  &  \\
+\hline
+\texttt{α}-\texttt{ω},\texttt{A}-\texttt{Ω} & 03B1-03C9 & & Variables and constants\\
+\hline
+\hline
+\multicolumn{4}{||c||}{\texttt{Categories}} \\
+\hline
+\hline
+ 𝟙 & 1D7D9 & \backslash\texttt{b1}  & The identity morphism\\
+\hline
+ ∘ & 2218 & \backslash\texttt{circ}  & Composition\\
+ \hline
+ \hline
+ \multicolumn{4}{||c||}{\texttt{Bicategories}} \\
+ \hline 
+ \hline
+ • & 2022  & \backslash\texttt{smul}  & Horizontal composition of objects\\ 
+  \hline
+  \hline
+ \multicolumn{4}{||c||}{\texttt{Adjunctions}} \\
+\hline
+\hline
+⇄ & 21C4 & \backslash\texttt{rightleftarrows}  & Adjunctions \\
+\hline
+⇆ & 21C6 & \backslash\texttt{leftrightarrows}  & Adjunctions \\
+\hline
+𛲔 & 1BC94 &  & Right adjoints\\
+\hline
+ॱ & 0971 &  & Left adjoints \\
+\hline
+⊣ & 22A3 & \backslash\texttt{dashv}  & The condition that two functors are adjoint \\
+\hline
+\hline
+\multicolumn{4}{||c||}{\texttt{Monads and Comonads}} \\
+\hline
+\hline
+?,¿ & 003F, 00BF & ?,\backslash\texttt{?}  & The corresponding (co)monad of an adjunction\\
+\hline
+!,¡ & 0021, 00A1 & !, \backslash\texttt{!}  & The (co)-Eilenberg-(co)-Moore adjunction \\
+\hline
+ꜝ,ꜞ & A71D, A71E &  & The (co)exponential maps\\
+\hline
+\hline
+\multicolumn{4}{||c||}{\texttt{Miscellaneous}} \\
+\hline
+\hline
+∼ & 223C & \backslash\texttt{sim} & Homotopies \\
+\hline
+≃ & 2243 & \backslash\texttt{equiv}  & Equivalences \\
+\hline
+≅ & 2245 & \backslash\texttt{cong}  & Isomorphisms \\
+\hline
+⊥ & 22A5 & \backslash\texttt{bot}  & The overobject classifier \\
+\hline
+∞ & 221E & \backslash\texttt{infty}  & Infinity categories and infinity groupoids\\ 
+\hline
+${}^{\leftrightarrow}$ & 20D7 &  & Homotopical operations on ∞-categories \\
+\hline
+${}^{\rightarrow}$ & 20E1 &  & Homotopical operations on ∞-groupoids \\
+\hline
+\end{tabular}
+\end{center}}
+
+\iffalse
+MAKE SURE THE THREE PRODUCTS GET INTO THE TABLE HERE
+
+
+Note: the product operation on a pair reflects a disposition as if the pair were in degree negative one as oppo. This reflects the later use of the inverse limit over E⃗.obj ℕ\_() and E⃗.obj ℕ\_(???).
+
+I don't know if it was pushout of ??? or pullback of (Id X₁) × f₂ : X₁ × Y₀ ⭢ X₁ × Y₁ and f₁ × (Id Y₂) : X₀ × Y₁ ⭢ X₁ × Y₁  : X₀ × Y₁ : in 
+
+f : X ⭢ Y gets replaced with ...
+g : ...:𝕕†
+
+strictland (post D)
+laxland (pre D)
+
+Of these, the characters $\texttt{ꜝ,ꜞ,𛲔,ॱ}$,${}^{\rightarrow}$, and ${}^{\leftrightarrow}$ do not have VSCode shortcuts, and so we provide alternatives for them.\\
+
+It is not possible to copy the from the pdf to the clipboard while preserving the integrity of the code. To see the official Lean 4 file please click the link on the top right of the front page or \href{https://github.com/linlib/ThreeWhiteheadTheorems}{this}.\\
+
+The conceptual difference between the first, second, and third Whitehead theorems. 
+
+\ \\
+\ \\
+\ \\
+\fi
+
+
+
+
+\part{BASED CONNECTED ∞-GROUPOIDS}
+
+
+\chapter{Chapter 1: The Puppe Sequence}
+
+This chapter establishes the well know Puppe sequence for the based homotopy groups πₙ. This is the well known Puppe sequence of homotopy groups.
+
+
+\chapter{Chapter 2: The Smash Product for ∞-Grpd₀}
+
+
+
+
+\chapter{Chapter 3: The Triangle Theorems}
+
+\section{The Cycle Theorem}
+
+\section{The Derived Exact Sequence}
+
+\section{The Octahedral Axiom}
+
+\section{Colimits of Inclusions}
+
+\section{The Mayer-Vietoris Sequence}
+
+\section{Fibrations and the exactness of - ∧ X₀}
+
+\section{Cofibrations and the exactness of [X₀,-]}
+
+\iffalse
+https://florisvandoorn.com/talks/Bonn2018spectralsequences.pdf
+\fi
+
+
+
+\part{BASED CONNECTED ∞-CATEGORIES}
+
+
+\chapter{Chapter 4: The Puppe Sequence}
+
+This chapter establishes the well know Puppe sequence for the based homotopy groups πₙ. This is the well known Puppe sequence of homotopy groups.
+
+
+\chapter{Chapter 5: The Smash Product for ∞-Cat₀}
+
+
+
+
+\chapter{Chapter 6: The Triangle Theorems}
+
+\section{The Cycle Theorem}
+
+\section{The Derived Exact Sequence}
+
+\section{The Octahedral Axiom}
+
+\section{Colimits of Inclusions}
+
+\section{The Mayer-Vietoris Sequence}
+
+\section{Fibrations and the exactness of - ∧ X₀}
+
+\section{Cofibrations and the exactness of [X₀,-]}
+
+\iffalse
+https://florisvandoorn.com/talks/Bonn2018spectralsequences.pdf
+\fi
+
+
+\part{∞-GROUPOIDS}
+
+\chapter{Chapter 7: The Puppe Sequence for ∞-Grpd}
+
+
+
+
+\chapter{Chapter 8: The Smash Product for ∞-Grpd}
+
+
+
+
+\chapter{Chapter 9: The Triangle Theorems for ∞-Grpd}
+
+\section{The Cycle Theorem}
+
+\section{The Derived Exact Sequence}
+
+\section{The Octahedral Axiom}
+
+\section{Colimits of Inclusions}
+
+\section{The Mayer-Vietoris Sequence}
+
+\section{Fibrations and the exactness of - ∧ X}
+
+\section{Cofibrations and the exactness of [X,-]}
+
+\iffalse
+https://florisvandoorn.com/talks/Bonn2018spectralsequences.pdf
+\fi
+
+
+
+\part{∞-CATEGORIES}
+
+\chapter{Chapter 10: The Puppe Sequence for ∞-Cat}
+
+In this chapter we construct the Puppe sequence for π⃗ₙ. {\bf Note: one joint in this exact sequence consists not of a map but an action.\} This will be used in the next chapter two establish two of the six categorical equivalences.\\
+
+
+
+\chapter{Chapter 11: The Smash Product for ∞-Cat}
+
+
+
+
+\chapter{Chapter 12: The Triangle Theorems for ∞-Cat}
+
+\section{The Cycle Theorem}
+
+\section{The Derived Exact Sequence}
+
+\section{The Octahedral Axiom}
+
+\section{Colimits of Inclusions}
+
+\section{The Mayer-Vietoris Sequence}
+
+\section{Fibrations and the exactness of - ∧ X}
+
+\section{Cofibrations and the exactness of [X,-]}
+
+\iffalse
+https://florisvandoorn.com/talks/Bonn2018spectralsequences.pdf
+\fi
+
+
+
+\newpage
+{
+\Huge 
+\begin{center}
+\ \\
+\ \\
+\texttt{Bibliography}
+\ \\
+\ \\
+\end{center}
+\thispagestyle{empty}
+}
+
+\iffalse
+\begin{enumerate}
+\item Pure Galois theory in categories (Janelidze) https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fOYPVWwAAAAJ&citation_for_view=fOYPVWwAAAAJ:9yKSN-GCB0IC
+\item Facets of descent I (Janelidze) https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fOYPVWwAAAAJ&citation_for_view=fOYPVWwAAAAJ:2osOgNQ5qMEC
+\item Internal object actions (Janelidze) https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fOYPVWwAAAAJ&citation_for_view=fOYPVWwAAAAJ:zYLM7Y9cAGgC
+\item Galois theory and a general notion of central simple extension (Janelidze) https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fOYPVWwAAAAJ&citation_for_view=fOYPVWwAAAAJ:d1gkVwhDpl0C
+\item Borceux, F., and Janelidze, G. Galois Theories. Cambridge Studies in Advanced Mathematics, vol. 72. Cambridge University Press, Cambridge, 2001. ISBN 0-521-80309-8.
+\item Tom Leinster, Higher Operads, Higher Categories, London Mathematical Society Lecture Note Series, vol. 298, Cambridge University Press, 2004.
+\item Lurie, Jacob. Higher Topos Theory. Annals of Mathematics Studies, vol. 170. Princeton University Press, Princeton, NJ, 2009.
+\item Leonardo de Moura and Jeremy Avigad, ``The Lean Theorem Prover," Journal of Formalized Reasoning, vol. 8, no. 1, pp. 1-37, 2015.
+\item Leonardo de Moura and Soonho Kong, ``Lean Theorem Proving Tutorial," Proceedings of the 6th International Conference on Interactive Theorem Proving (ITP), Lecture Notes in Computer Science, vol. 9236, pp. 378-395, Springer, Berlin, 2015.
+\item Jeremy Avigad, Leonardo de Moura, and Soonho Kong, ``Theorem Proving in Lean," Logical Methods in Computer Science, vol. 12, no. 4, pp. 1-43, 2016.
+\item Daniel Selsam, Leonardo de Moura, David L. Dill, and David L. Vlah, ``Leonardo: A Solver for MIP and Mixed Integer Nonlinear Programming," Proceedings of the 33rd Conference on Neural Information Processing Systems (NeurIPS), pp. 493-504, 2019.
+\item \url{https://www.uni-muenster.de/IVV5WS/WebHop/user/nikolaus/Papers/oo-bundles_general_theory.pdf}
+\item \url{https://www.cse.chalmers.se/~coquand/cubicaltt.pdf}
+\item \url{https://arxiv.org/pdf/1607.04156.pdf}
+\item \url{https://carloangiuli.com}
+\item \url{https://florisvandoorn.com/papers/dissertation.pdf}
+\end{enumerate}
+\fi
+
+Further reading:
+
+\begin{enumerate}
+\item J. Beck, ``Distributive laws," in Seminar on Triples and Categorical Homology Theory, Springer-Verlag, 1969, pp. 119-140.
+\item Saunders Mac Lane, "Categories for the Working Mathematician," Graduate Texts in Mathematics, vol. 5, Springer-Verlag, New York, 1971.
+\item Samuel Eilenberg and Saunders Mac Lane, ``General Theory of Natural Equivalences," Transactions of the American Mathematical Society, vol. 58, no. 2, pp. 231-294, 1945.
+\item Daniel M. Kan, ``Adjoint Functors," Transactions of the American Mathematical Society, vol. 87, no. 2, pp. 294-329, 1958.
+\item Chris Heunen, Jamie Vicary, and Stefan Wolf, ``Categories for Quantum Theory: An Introduction," Oxford Graduate Texts, Oxford University Press, Oxford, 2018.
+\item S. Eilenberg and J. C. Moore, ``Adjoint Functors and Triples," Proceedings of the Conference on Categorical Algebra, La Jolla, California, 1965, pp. 89-106.
+\item Daniel M. Kan, ``On Adjoints to Functors" (1958): In this paper, Kan further explored the theory of adjoint functors, focusing on the existence and uniqueness of adjoints. His work provided important insights into the fundamental aspects of adjoint functors and their role in category theory.
+\end{enumerate}
+
+Lectures, Videos, and Stackexchange questions:
+
+\begin{enumerate}
+\item \url{https://www.youtube.com/watch?v=Ob9tOgWumPI}
+\item \url{https://www.youtube.com/watch?v=xYenPIeX6MY}
+\item \url{https://mathoverflow.net/questions/5901/do-the-signs-in-puppe-sequences-matter}
+\end{enumerate}
+
+Relevant discussions on the $\texttt{Lean 4}$ Zulip:
+
+\begin{enumerate}
+\item 
+\end{enumerate}
+
+\iffalse
+Maintainers:
+
+For a list containing more detailed information, see https://leanprover-community.github.io/teams/maintainers.html
+
+Patrick Massot (@patrickmassot): documentation, topology, geometry
+
+- July 17th 1961- Mark Solm's birthday. On this date in 2024, I would like to reach out to him with my proposal for putting his dynamics in Lean 4. was 62 years, 5 months and 28 days ago, which is 22,826 days.
+- https://en.wikipedia.org/wiki/Hamiltonian_mechanics
+
+\fi
+
+\iffalse
+ADDING IN THEOREM ABOUT * ⭢ U ∩ V ⭢ U,V ⭢ X 
+ADDING IN THEOREM ABOUT Uᵢ.
+\fi
+
+
+
+Ideas for future applications:
+
+\begin{enumerate}
+\item \url{https://arxiv.org/pdf/2206.13563.pdf}
+\end{enumerate}
+
+\iffalse
+\subsection{The Postnikov Tower}
+
+
+
+\subsection{The Whitehead Tower}
+
+
+\section{Complexes}
+
+\begin{definition}
+...
+\end{definition}
+\fi
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
